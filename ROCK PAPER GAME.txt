@@ -1,0 +1,56 @@
+import random
+l=["rock","paper","scissor"]
+while True:
+    ucount = 0
+    ccount=0
+    uc = int(input('''
+    GAME START...
+    1 YES
+    2 NO | EXIT
+                '''))
+    if uc==1:
+        for a in range(1,6):
+            userinput = int(input('''
+            1 rock
+            2 paper
+            3 scissor
+                                 '''))
+            if userinput == 1:
+                 uchoice = "rock"
+            elif userinput==2:
+                uchoice="paper"
+            elif userinput==3:
+                uchoice="scissor"
+            Cchoice=random.choice(l)
+            if Cchoice==uchoice:
+              print("computer value",Cchoice)
+              print("your choice",uchoice)
+              print("GAME DRAW")
+              ucount=ucount+1
+              ccount=ccount+1
+            elif(uchoice=="rock" and Cchoice =="scissor") or (uchoice=="paper" and Cchoice=="rock") or (uchoice=="scissor" and Cchoice=="paper"):
+              print("computer value",Cchoice)
+              print("your value",uchoice)
+              print("YOU WON THE ROUND")
+              ucount=ucount+1
+            else:
+             print("computer value:",Cchoice)
+             print("your value",uchoice)
+             print("COMPUTER WON THE MATCH")
+             ccount=ccount+1
+
+            if ucount==ccount:
+                print("FINAL GAME DRAW.....")
+                print("user score",ucount)
+                print("computer score",ccount)
+            elif ucount>ccount:
+                print("YOU WON THE TOURNAMENT")
+                print("user score", ucount)
+                print("computer score", ccount)
+            else:
+               print("COMPUTER WON THE TOURNAAMENT")
+               print("user score", ucount)
+               print("computer score", ccount)
+
+    else:
+       break
